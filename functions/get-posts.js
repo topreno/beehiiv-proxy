@@ -6,10 +6,14 @@ exports.handler = async (event) => {
   });
 
   const data = await response.json();
-
   return {
     statusCode: 200,
+    headers: {
+      "Access-Control-Allow-Origin": "*", // <--- ADD THIS
+      "Access-Control-Allow-Headers": "Content-Type" // <--- AND THIS
+    },
     body: JSON.stringify(data)
   };
 };
+
 
